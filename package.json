@@ -2,22 +2,36 @@
   "name": "jorgerepossi_entrega_12",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "type": "module",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon server.js",
-    "prepare": "husky install"
+    "start": "node src/server.js",
+    "dev": "nodemon .",
+    "prepare": "husky install",
+    "format": "npx prettier --write .",
+    "lint": "eslint . --ext js --format table --fix",
+    "lint:fix": " npm run lint -- --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1"
   },
   "devDependencies": {
+    "eslint": "^8.21.0",
+    "eslint-formatter-table": "^7.32.1",
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": [
+      "npm run format",
+      "npm run lint"
+    ]
   }
 }
