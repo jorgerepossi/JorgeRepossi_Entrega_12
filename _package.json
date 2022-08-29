@@ -1,0 +1,35 @@
+{
+  "name": "jorgerepossi_entrega_12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon .",
+    "prepare": "husky install",
+    "format": "npx prettier --write .",
+    "lint": "eslint . --ext js --format table --fix",
+    "lint:fix": " npm run lint -- --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "socket.io": "^4.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0",
+    "eslint-formatter-table": "^7.32.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": ["npm run format", "npm run lint"]
+  }
+}
