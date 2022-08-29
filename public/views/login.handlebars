@@ -1,4 +1,4 @@
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -28,19 +28,20 @@
   </head>
   <body>
 
-  <div id="container" class="container bg-light p-3 rounded m-0">
-    <div class="card p-1 m-0 flex">
+    <div id="container" class="container bg-light p-3 rounded m-0">
+      <div class="card p-1 m-0 flex">
 
-  <form action="http://localhost:8080/api" method="post">
-  <h2 class="text-primary">Login de usuario</h2>
+        <form action="http://localhost:8080/api" method="post">
+          <h2 class="text-primary">Login de usuario</h2>
 
-    <div class="mb-3 flex flex-col form-login ">
-      <label for="title" class="form-label">Ingrese su nombre</label>
-      <input type="text" class="form-control" name="name" required />
+          <div class="mb-3 flex flex-col form-login">
+            <label for="title" class="form-label">Ingrese su nombre</label>
+            <input type="text" class="form-control" name="name" required />
+          </div>
+          <button type="submit" class="btn btn-success">Ingresar</button>
+        </form>
+      </div>
+
     </div>
-    <button type="submit" class="btn btn-success">Ingresar</button>
-  </form>
-    </div>
-
-</div>
   </body>
+</html>

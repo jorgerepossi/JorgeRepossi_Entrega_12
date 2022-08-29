@@ -30,7 +30,8 @@ html,
 body {
   font-size: 16px;
 }
-.button, button {
+.button,
+button {
   padding-top: $space-sm;
   padding-right: $space-lg;
   padding-bottom: $space-sm;
@@ -73,25 +74,25 @@ textarea {
   background-clip: border-box;
 }
 
-.flex{
+.flex {
   display: flex;
 }
-.flex-col{
+.flex-col {
   flex-direction: column;
 }
-#welcome{
+#welcome {
   max-width: 1140px;
-    padding: 10px;
-    color: rgb(99 102 241);
-    background-color: rgb(224 231 255);
-  & .welcome__message{
+  padding: 10px;
+  color: rgb(99 102 241);
+  background-color: rgb(224 231 255);
+  & .welcome__message {
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    & a{
+    & a {
       text-decoration: none;
-      &.logout{
+      &.logout {
         background-color: rgb(49 46 129);
         color: #fff;
       }
@@ -110,17 +111,17 @@ textarea {
   margin: 0px auto;
   padding: 1.25rem;
 }
-.form-login{
-  label{
+.form-login {
+  label {
     display: block;
     margin-bottom: 0.5rem;
   }
-  input[type=text] {
+  input[type="text"] {
     padding: 0.75rem;
     margin-bottom: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.125);
     width: 100%;
-}
+  }
 }
 .form__group {
   display: flex;
