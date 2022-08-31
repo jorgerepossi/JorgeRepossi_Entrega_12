@@ -1,11 +1,10 @@
 /**
- * Entrega 14 - Clase 28
- * 28. Global & Child process
+ * Entrega 12 - Clase 24
  * Alumno: Jo Repossi
  * Backend: NodeJS
  * Comisión 30995
  * Profesor: Diego Jofre
- * Fecha: Martes 30 Agosto 2022
+ * Fecha: Jueves 11 Agosto 2022
  */
 
 const express = require("express");
@@ -19,9 +18,9 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 
 require('dotenv').config('.env');
-const parse = require("yargs/yargs");
+
 const process = require('process');
-const { fork } = require("child_process");
+
 
 const productsController = require("./src/controller/productController");
 const messagesController = require("./src/controller/messageController");
@@ -40,30 +39,8 @@ const app = express();
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 
-const yargs = parse(process.argv.slice(2));
 
-const { port, _ } = yargs
-  .boolean("debug")
-  .alias({
-    // m: 'modo',
-    p: "port",
-    // d: 'debug'
-  })
-  .default({
-    // modo: 'prod',
-    port: 8080,
-    // debug: false
-  }).argv;
 
-const server_info = {
-  arguments: process.argv.slice(2),
-  os: process.env.os,
-  node_version: process.versions.node,
-  memory_usage: process.memoryUsage().rss,
-  exec_path: process.execPath,
-  process_id: process.pid,
-  current_working_directory: process.cwd(),
-};
 
 app.set("view engine", "handlebars");
 
@@ -89,20 +66,7 @@ app.use(
 
 app.use("/", require("./src/routes/login"));
 
-app.get("/info", (req, res) => {
-  res.json(server_info);
-});
 
-
-
-app.get("/api/randoms", (req, res) => {
-	const cant = req.query.cant || 1000000;
-	const child = fork(path.resolve(process.cwd(), "./src/controller/randomNumberController.js"));
-	child.send(cant);
-  child.on("message", msg => {
-    res.json({ numeros: msg });
-  });
-});
 
 io.on("connection", (socket) => {
   socket.emit("socketConnected");
